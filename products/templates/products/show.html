@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+<p class="lead">Details for {{product.name}}</p>
+<dl>
+    <dt>Description</dt><dd>{{product.description}}</dd>
+    <dt>Ages</dt><dd>{{product.age_range}}</dd>
+    <dt>Release date</dt><dd>{{product.release_date}}</dd>
+    <dt>Price</dt><dd>{{product.price}}</dd>
+    <dt>Average rating</dt><dd>{{product.avg_rating|floatformat:2}}</dd>
+</dl>
+</section>
+
+<section>
+<table class="table">
+    <thead>
+        <th>Review</th>
+        <th>Rating</th>
+    </thead>
+    <tbody>
+
+        {# Add the contents of the review table here #}
+
+    </tbody>
+</table>
+</section>
+
+<section>
+
+{# Add button/link to get to the review form here #}
+
+</section>
+
+{% endblock %}
+
+{% block footer %}
+<br>
+<div>
+<a class="btn btn-sm btn-primary" href="{% url 'index' %}">Back to all toys</a>
+</div>
+{% endblock %}

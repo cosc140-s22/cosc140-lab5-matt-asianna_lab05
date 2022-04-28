@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+<form method="get" action="{% url 'index' %}">
+    {{ form }}
+    <input class="btn btn-sm btn-info" type="submit" name="Filter results">
+    <a href="{% url 'index' %}?reset=true" class="btn btn-sm btn-secondary">Reset filters</a>
+</form>
+{% endblock %}
+
+{% block content %}
+<table class="table">
+    <thead>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Ages</th>
+        <th>Release date</th>
+        <th>Price</th>
+        <th>Average rating</th>
+    </thead>
+    <tbody>
+{% for p in products %}
+    <tr>
+        <td><a href="{% url 'show' p.id %}">{{ p.name }}</a></td>
+        <td>{{ p.description|truncatewords:5 }}</td>
+        <td class="right">{{ p.age_range }}</td>
+        <td>{{ p.release_date }}</td>
+        <td class="right">{{ p.price|floatformat:2 }}</td>
+        <td class="right">{{ p.avg_rating|floatformat:2 }}</td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
