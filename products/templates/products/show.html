@@ -19,18 +19,20 @@
         <th>Rating</th>
     </thead>
     <tbody>
-
-        {# Add the contents of the review table here #}
-
+       {% for review in product.review_set.all%}
+      <tr> 
+        <td>{{review.review}} </td> <td> {{review.stars}}</td>
+      </tr>
+      {% endfor %}
     </tbody>
 </table>
 </section>
 
+{% if user.is_authenticated %}
 <section>
-
-{# Add button/link to get to the review form here #}
-
+  <a class="btn btn-sm btn-primary" href="{% url 'createview' product.id %}">Create a review</a>
 </section>
+{% endif %}
 
 {% endblock %}
 
@@ -38,5 +40,7 @@
 <br>
 <div>
 <a class="btn btn-sm btn-primary" href="{% url 'index' %}">Back to all toys</a>
+
+  
 </div>
 {% endblock %}

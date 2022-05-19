@@ -6,8 +6,12 @@
 </section>
 
 <section>
+  <form action="{% url 'createview' product.id %}" method="post">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Submit">
+  </form>
 
-{# Add new review form here #}
 
 </section>
 

@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 
 from products.views import index, show
-
+from products.views import create_review
 
 def root_redirect(request):
     return redirect(reverse_lazy('index'))
@@ -32,5 +32,6 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(next_page='/'), name='logout'),
     path('products/', index, name='index'),
     path('products/<int:product_id>', show, name='show'),
+    path('products/<int:product_id>/createreview', create_review, name = 'createview'),
     path('', root_redirect),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
