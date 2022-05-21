@@ -8,5 +8,7 @@
 
 ## Feedback
 
-Once you commit and submit your work to Github, I'll update this section with feedback.
+S
+
+You did indeed make amazon!  Everything looks good/works well.
 
